@@ -36,7 +36,7 @@ body {
     border-radius: 50%;
     animation: float 10s infinite;
     pointer-events: none;
-    z-index: -1;
+    z-index: -100;
 }
 
 @keyframes float {
@@ -53,7 +53,6 @@ body {
         transform: translate(-50px, -50px);
     }
 }
-*/
 
 /* Additional Styles */
 /* Add any other CSS styles you need for your website */
