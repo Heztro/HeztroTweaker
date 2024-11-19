@@ -5,44 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeztroTweaker - Windows Optimizer</title>
     <!-- Core Dependencies -->
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'purple': {
-                            deep: '#1a103d',
-                            medium: '#2d1f62',
-                            light: '#6b4ad1',
-                            accent: '#8b5cf6'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="bg-purple-deep text-white">
     <!-- Animated Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-light/20 via-transparent to-transparent animate-pulse-slow"></div>
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-100]">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-light/20 via-transparent to-transparent animate-pulse-slow"></div>
         <div class="glow-orb"></div>
         <div class="glow-orb glow-orb-2"></div>
         <div class="glow-orb glow-orb-3"></div>
     </div>
     
     <!-- Main Content -->
-    <div id="root" class="relative z-[1]"></div>
+    <div id="root" class="relative z-[2]">
+        <div class="relative container mx-auto px-6 pt-16 pb-32">
+            <nav class="flex justify-between items-center mb-16 animate-slide-down">
+                <div class="text-2xl font-bold text-gradient">
+                    HeztroTweaker
+                </div>
+                <button onClick={() => window.location.href = 'https://github.com/Heztro/HeztroTweaker'}
+                    class="glass px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-white/10 transition-all duration-300">
+                    <Lucide.Github size={20} />
+                    View on GitHub
+                </button>
+            </nav>
+            
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="animate-slide-up space-y-6">
+                    <h1 class="space-y-2">
+                        <div class="text-4xl font-bold text-white/90">
+                            Windows Optimization made
+                        </div>
+                        <div class="text-7xl font-bold text-gradient">
+                            Simple
+                        </div>
+                    </h1>
 
-    <!-- Main App -->
-    <script type="text/babel" src="script.js"></script>
+                    <div class="flex justify-center gap-4 mt-6">
+                        <div class="animate-fade-in glass px-6 py-2 rounded-lg" style={{ animationDelay: '0.4s' }}>
+                            <span class="text-purple-accent font-medium">Lightweight. Fast. Free.</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-white/80 mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                        Boost your PC's performance with just a few clicks
+                    </p>
+                    
+                    <div class="flex gap-4 justify-center">
+                        <button 
+                            onClick={() => window.location.href = 'https://github.com/Heztro/HeztroTweaker/releases/latest'}
+                            class="btn-primary px-6 py-3 rounded-lg flex items-center gap-2 animate-fade-in"
+                            style={{ animationDelay: '0.6s' }}>
+                            <Lucide.Download size={20} class="group-hover:animate-bounce" />
+                            Download Now
+                        </button>
+                        <button 
+                            onClick={() => window.location.href = 'https://github.com/Heztro/HeztroTweaker'}
+                            class="glass px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-white/10 transition-all duration-300 animate-fade-in"
+                            style={{ animationDelay: '0.7s' }}>
+                            <Lucide.Github size={20} class="group-hover:rotate-12 transition-transform duration-300" />
+                            Source Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        {/* Steps Section */}
+        <section class="container mx-auto px-6 py-16">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-4">How It Works</h2>
+                <p class="text-white/60">Simple steps to optimize your Windows</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="reveal glass feature-card p-6 text-center" style={{ animationDelay: '0ms' }}>
+                    <Lucide.Download size={24} class="mx-auto mb-4 text-purple-accent feature-icon" />
+                    <h3 class="font-bold mb-2">Download</h3>
+                    <p class="text-white/60 text-sm">Get HeztroTweaker</p>
+                </div>
+                <div class="reveal glass feature-card p-6 text-center" style={{ animationDelay: '100ms' }}>
+                    <Lucide.MousePointer size={24} class="mx-auto mb-4 text-purple-accent feature-icon" />
+                    <h3 class="font-bold mb-2">Run</h3>
+                    <p class="text-white/60 text-sm">Launch as admin</p>
+                </div>
+                <div class="reveal glass feature-card p-6 text-center" style={{ animationDelay: '200ms' }}>
+                    <Lucide.Settings size={24} class="mx-auto mb-4 text-purple-accent feature-icon" />
+                    <h3 class="font-bold mb-2">Select</h3>
+                    <p class="text-white/60 text-sm">Choose Optimization</p>
+                </div>
+                <div class="reveal glass feature-card p-6 text-center" style={{ animationDelay: '300ms' }}>
+                    <Lucide.Zap size={24} class="mx-auto mb-4 text-purple-accent feature-icon" />
+                    <h3 class="font-bold mb-2">Done</h3>
+                    <p class="text-white/60 text-sm">Enjoy the performance</p>
+                </div>
+            </div>
+        </section>
+
+        {/* Main Features Section */}
+        <section class="container mx-auto px-6 py-16">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold mb-4">Core Features</h2>
+                <p class="text-white/60">Essential Optimizations for every user</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="reveal glass feature-card p-6" style={{ animationDelay: '0ms' }}>
+                    <Lucide.Zap size={24} class="text-purple-accent mb-4 feature-icon" />
+                    <h3 class="font-bold mb-2">Quick Optimization Presets</h3>
+                    <p class="text-white/60 mb-4">Choose your performance level</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '0ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Minimal - Safe Optimizations</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '50ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Recommended - Balanced Performance</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '100ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Extreme - Maximum Performance</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal glass feature-card p-6" style={{ animationDelay: '100ms' }}>
+                    <Lucide.Settings size={24} class="text-purple-accent mb-4 feature-icon" />
+                    <h3 class="font-bold mb-2">Windows & Registry</h3>
+                    <p class="text-white/60 mb-4">Core system Optimizations</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '0ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Ultimate Performance Mode</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '50ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Registry Optimization</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '100ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>DirectX & Game Mode</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '150ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Input Lag Reduction</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal glass feature-card p-6" style={{ animationDelay: '200ms' }}>
+                    <Lucide.Lock size={24} class="text-purple-accent mb-4 feature-icon" />
+                    <h3 class="font-bold mb-2">Privacy & Security</h3>
+                    <p class="text-white/60 mb-4">Enhanced system protection</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '0ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Telemetry Control</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '50ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Privacy Enhancement</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '100ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Network Security</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '150ms' }}>
+                            <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                            <span>Tracker Prevention</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        {/* Advanced Features Section */}
+<section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl font-bold mb-4">Advanced Optimizations</h2>
+        <p class="text-white/60">Professional tools for maximum performance</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="reveal glass feature-card p-6" style={{ animationDelay: '100ms' }}>
+            <div class="flex items-center gap-3 mb-4">
+                <Lucide.Cpu size={24} class="text-purple-accent feature-icon" />
+                <div>
+                    <h3 class="font-bold">Advanced Tweaks</h3>
+                    <p class="text-sm text-white/60">Professional performance tools</p>
+                </div>
+            </div>
+            <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '0ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>NVIDIA Driver Updates</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '50ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>CPU Core Management</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '100ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>KBoost Configuration</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '150ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>Core Isolation Settings</span>
+                </li>
+            </ul>
+        </div>
+        <div class="reveal glass feature-card p-6" style={{ animationDelay: '200ms' }}>
+            <div class="flex items-center gap-3 mb-4">
+                <Lucide.RefreshCcw size={24} class="text-purple-accent feature-icon" />
+                <div>
+                    <h3 class="font-bold">System Protection</h3>
+                    <p class="text-sm text-white/60">Safety and recovery options</p>
+                </div>
+            </div>
+            <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '0ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>Restore Point Creation</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '50ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>Settings Backup</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '100ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>Easy Revert Options</span>
+                </li>
+                <li class="flex items-center gap-2 text-white/80" style={{ transitionDelay: '150ms' }}>
+                    <Lucide.Check size={16} class="text-green-400 flex-shrink-0" />
+                    <span>Safe Mode Access</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{/* CTA Section */}
+<section class="container mx-auto px-6 py-16">
+    <div class="reveal glass p-12 text-center relative overflow-hidden feature-card">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-light/10 to-purple-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <h2 class="text-3xl font-bold mb-4 relative z-10">Ready to Optimize?</h2>
+        <p class="mb-6 text-white/80 relative z-10">Experience the simplest way to boost your PC's performance</p>
+        <button 
+            onClick={() => window.location.href = 'https://github.com/Heztro/HeztroTweaker/releases/latest'}
+            class="btn-primary px-6 py-3 rounded-lg flex items-center gap-2 mx-auto relative z-10">
+            Get Started
+            <Lucide.ChevronRight size={20} class="group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
+    </div>
+</section>
+
+{/* Footer */}
+<footer class="container mx-auto px-6 py-8 border-t border-white/10">
+    <div class="text-center text-white/60">
+        <p>Made with ❤️ by Heztro</p>
+        <p class="mt-2">Open source software released under the MIT License</p>
+    </div>
+</footer>
+</div>
+
+<!-- Main App -->
+<script src="script.js"></script>
 </body>
 </html>
