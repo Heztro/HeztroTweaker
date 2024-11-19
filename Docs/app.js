@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Download, Settings, Shield, Zap, Check, ChevronRight, Github, MousePointer, ArrowRight, Lock, Cpu, Radio, MonitorCheck, Network, RefreshCcw, Trash2, Power } from 'lucide-react';
+const { useState, useEffect } = React;
+const { Download, Settings, Shield, Zap, Check, ChevronRight, Github, MousePointer, ArrowRight, Lock, Cpu, Radio, MonitorCheck, Network, RefreshCcw, Trash2, Power } = lucide;
 
 function App() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -355,4 +355,5 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = document.getElementById('root');
+ReactDOM.render(<App />, root);
