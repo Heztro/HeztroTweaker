@@ -3,89 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeztroTweaker - Windows Optimization Made Simple</title>
+    <title>HeztroTweaker - Windows Optimizer</title>
+    <!-- React and dependencies -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-animation"></div>
-    
-    <div class="hero">
-        <h1>
-            <span class="title-line">Windows Optimization</span>
-            <span class="title-line">Made Simple</span>
-        </h1>
-        <p class="subtitle">An actual easy to use, simple, and free windows optimizer.</p>
-        <a href="https://github.com/Heztro/HeztroTweaker/releases" class="download-btn">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
-            </svg>
-            Download Now
-        </a>
-    </div>
-
-    <div class="features">
-        <div class="features-grid">
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 21a7 7 0 0 0-14 0"></path>
-                </svg>
-                <h3>Windows Optimizations</h3>
-                <p>Advanced system tweaks for maximum performance</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M23 12l-7-7v4C9.2 9 4.6 11.8 2 16c2-2.6 5.2-4.3 14-4.3v4l7-7z"></path>
-                </svg>
-                <h3>Network Tweaks</h3>
-                <p>Optimize network settings for faster connectivity</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12c5.16-1.26 9-6.45 9-12V5L12 1zm0 6c1.4 0 2.8 1.1 2.8 2.5S13.4 12 12 12s-2.8-1.1-2.8-2.5S10.6 7 12 7z"></path>
-                </svg>
-                <h3>Privacy Optimizations</h3>
-                <p>Enhanced privacy settings and telemetry control</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                </svg>
-                <h3>Bloatware Management</h3>
-                <p>Remove unnecessary Windows applications</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="how-to">
-        <h2>How to Use</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">01</div>
-                <h3>Download HeztroTweaker.bat</h3>
-                <p>Get the latest version from our GitHub releases</p>
-            </div>
-            <div class="step">
-                <div class="step-number">02</div>
-                <h3>Run as Administrator</h3>
-                <p>Right-click and select "Run as administrator"</p>
-            </div>
-            <div class="step">
-                <div class="step-number">03</div>
-                <h3>You're Done!</h3>
-                <p>Enjoy your optimized Windows experience</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <a href="https://github.com/Heztro/HeztroTweaker/releases" class="download-btn">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path>
-            </svg>
-            Download HeztroTweaker
-        </a>
-    </div>
-
-    <script src="scripts.js"></script>
+    <div id="root"></div>
+    <!-- Main App -->
+    <script type="text/babel" src="app.js"></script>
 </body>
 </html>
