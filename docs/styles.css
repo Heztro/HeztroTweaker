@@ -1,265 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-}
-
+/* Base styles */
 body {
-    background: #000;
-    color: #fff;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-.background-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #000000, #0a0a0a, #000000);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    z-index: -1;
-}
-
-/* Header styles */
-.hero {
+    margin: 0;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
+    background: linear-gradient(to bottom, #111827, #1f2937);
+}
+
+/* Animation classes */
+.reveal {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeIn 1s ease forwards;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0, 1);
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.title-line {
-    background: linear-gradient(45deg, #fff, #0ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInTitle 0.5s ease forwards;
-}
-
-.title-line:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    color: #888;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards 0.6s;
-}
-
-/* Download button styles */
-.download-btn {
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, #0066ff, #00ffff);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards 0.9s;
-}
-
-.download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
-}
-
-.download-icon {
-    width: 20px;
-    height: 20px;
-    stroke-width: 2;
-}
-
-/* Features grid */
-.features {
-    padding: 5rem 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.features.visible {
-    animation: fadeIn 1s ease forwards;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    background: linear-gradient(45deg, rgba(17, 17, 17, 0.8), rgba(34, 34, 34, 0.8));
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.feature-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
-    border-color: rgba(0, 255, 255, 0.3);
-}
-
-.feature-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 1rem;
-    stroke: #0ff;
-    stroke-width: 1.5;
-}
-
-/* How to use section */
-.how-to {
-    padding: 5rem 2rem;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.how-to.visible {
-    animation: fadeIn 1s ease forwards;
-}
-
-.how-to h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    background: linear-gradient(45deg, #fff, #0ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.steps {
-    max-width: 800px;
-    margin: 3rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.step {
-    padding: 2rem;
-    background: linear-gradient(45deg, rgba(17, 17, 17, 0.8), rgba(34, 34, 34, 0.8));
-    border-radius: 15px;
-    opacity: 0;
-    transform: translateX(-20px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-}
-
-.step-number {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    background: linear-gradient(45deg, #0066ff, #00ffff);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.step.visible {
-    animation: slideIn 0.5s ease forwards;
+.reveal.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Animations */
 @keyframes fadeIn {
-    to {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes fadeInTitle {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+@keyframes slideRight {
+    from { 
+        opacity: 0;
+        transform: translateX(-20px);
     }
-}
-
-@keyframes slideIn {
-    to {
+    to { 
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
+@keyframes slideLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(20px);
     }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
+    to { 
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(45deg, rgba(17, 17, 17, 0.8), rgba(34, 34, 34, 0.8));
-    opacity: 0;
-    backdrop-filter: blur(10px);
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
 }
 
-.footer.visible {
-    animation: fadeIn 1s ease forwards;
+/* Animation utilities */
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .step-number {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: -20px auto 20px;
-    }
+.animate-slideUp {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-slideRight {
+    animation: slideRight 0.6s ease-out forwards;
+}
+
+.animate-slideLeft {
+    animation: slideLeft 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
