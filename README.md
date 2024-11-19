@@ -48,7 +48,7 @@ This is a powerful Windows optimization tool that I created to help boost system
 ## Getting Started
 
 1. Download the latest release
-2. Run `heztrotweaker.bat`
+2. Run `heztrotweaker.bat` as administrator
 3. That's it! No complicated setup needed.
 
 ## Using the Tool
@@ -56,9 +56,8 @@ This is a powerful Windows optimization tool that I created to help boost system
 Just launch the program and you'll see different sections for various optimizations. I've made it pretty straightforward:
 
 1. Pick the optimizations you want
-2. Click apply
-3. Restart your PC when prompted
-4. Your PC is now faster!
+2. Press enter
+3. They should apply, some optimizations require a system restart to work.
 
 ## Fair Warning ⚠️
 
