@@ -28,6 +28,7 @@ body {
 }
 
 /* Animated Background Elements */
+/* Temporarily disabled
 .glow-orb {
     position: fixed;
     width: 300px;
@@ -39,27 +40,6 @@ body {
     z-index: -1;
 }
 
-.glow-orb-2 {
-    top: 60%;
-    left: 70%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.3) 0%, rgba(167, 139, 250, 0) 70%);
-    animation-delay: -2s;
-    animation-duration: 15s;
-}
-
-.glow-orb-3 {
-    top: 30%;
-    left: 20%;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(196, 181, 253, 0.3) 0%, rgba(196, 181, 253, 0) 70%);
-    animation-delay: -5s;
-    animation-duration: 12s;
-}
-
-/* Animations */
 @keyframes float {
     0%, 100% {
         transform: translate(0, 0);
@@ -74,6 +54,10 @@ body {
         transform: translate(-50px, -50px);
     }
 }
+*/
+
+/* Additional Styles */
+/* Add any other CSS styles you need for your website */
 
 @keyframes glow {
     0%, 100% {
