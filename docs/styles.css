@@ -512,6 +512,10 @@ body {
     background: #8b5cf6;
 }
 
+/* styles.css */
+
+/* ... existing styles ... */
+
 /* Loading Animation */
 .loading {
     position: fixed;
@@ -524,6 +528,11 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    transition: transform 0.5s ease;
+}
+
+.loading.slide-out {
+    transform: translateY(-100%);
 }
 
 .loading::after {
@@ -540,6 +549,18 @@ body {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Container z-index */
