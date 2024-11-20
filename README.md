@@ -2,7 +2,8 @@
 
 Hey there! 👋 This is an optimization tool that I've been working on. I made this because I'm annoyed of having to either do all of these tweaks manually or having to pay money to use Windows optimizers (Hone.gg, Vtrl.cc, etc.) This replicates their functionality completely, with a better FPS boost - since our program is a simple batch file.
 
-#### !! there's a bug so you can't use restore point management in the program !!
+#### !! bugs !!
+no windows version detection or gpu detection
 
 ## What's This All About?
 
