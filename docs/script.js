@@ -1,105 +1,147 @@
-// Get required functions from React and Lucide
-const { useState, useEffect } = React;
-const { Download, Settings, Shield, Zap, Check, ChevronRight, Github, MousePointer, ArrowRight, Lock, Cpu, Radio, MonitorCheck, Network, RefreshCcw, Trash2, Power } = Lucide;
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Lucide icons
+    lucide.createIcons();
 
-function App() {
-    const [hoveredCard, setHoveredCard] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    
-    useEffect(() => {
-        // Loading animation
-        setTimeout(() => setIsLoading(false), 1000);
+    // Handle loading screen
+    const loadingScreen = document.getElementById('loadingScreen');
+    setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 600);
+    }, 1000);
 
-        // Scroll animations
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        return () => observer.disconnect();
-    }, []);
-
-    if (isLoading) {
-        return <div className="loading"></div>;
-    }
-
-    return (
-        <div className="relative min-h-screen overflow-hidden">
-            {/* Hero Section */}
-            <header className="relative container mx-auto px-6 pt-16 pb-32">
-                <nav className="flex justify-between items-center mb-16 animate-slide-down">
-                    <div className="text-2xl font-bold text-gradient">
-                        HeztroTweaker
-                    </div>
-                    <button onClick={() => window.location.href = 'https://github.com/Heztro/HeztroTweaker'}
-                        className="glass px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-white/10 transition-all duration-300">
-                        <Github size={20} />
-                        View on GitHub
-                    </button>
-                </nav>
-            </header>
-
-            {/* Steps Section */}
-            <section className="container mx-auto px-6 py-16">
-                <div className="text-center mb-12 reveal">
-                    <h2 className="text-3xl font-bold mb-4">How It Works</h2>
-                    <p className="text-white/60">Simple steps to optimize your Windows</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div className="reveal glass feature-card p-6 text-center" style={{ animationDelay: '0ms' }}>
-                        <Download size={24} className="mx-auto mb-4 text-purple-accent feature-icon" />
-                        <h3 className="font-bold mb-2">Download</h3>
-                        <p className="text-white/60 text-sm">Get HeztroTweaker</p>
-                    </div>
-                    <div className="reveal glass feature-card p-6 text-center" style={{ animationDelay: '100ms' }}>
-                        <MousePointer size={24} className="mx-auto mb-4 text-purple-accent feature-icon" />
-                        <h3 className="font-bold mb-2">Run</h3>
-                        <p className="text-white/60 text-sm">Launch as admin</p>
-                    </div>
-                    <div className="reveal glass feature-card p-6 text-center" style={{ animationDelay: '200ms' }}>
-                        <Settings size={24} className="mx-auto mb-4 text-purple-accent feature-icon" />
-                        <h3 className="font-bold mb-2">Select</h3>
-                        <p className="text-white/60 text-sm">Choose Optimization</p>
-                    </div>
-                    <div className="reveal glass feature-card p-6 text-center" style={{ animationDelay: '300ms' }}>
-                        <Zap size={24} className="mx-auto mb-4 text-purple-accent feature-icon" />
-                        <h3 className="font-bold mb-2">Done</h3>
-                        <p className="text-white/60 text-sm">Enjoy the performance</p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Main Features Section */}
-            <section className="container mx-auto px-6 py-16">
-                {/* Main Features content goes here */}
-            </section>
-
-            {/* Advanced Features Section */}
-            <section className="container mx-auto px-6 py-16">
-                {/* Advanced Features content goes here */}
-            </section>
-
-            {/* CTA Section */}
-            <section className="container mx-auto px-6 py-16">
-                {/* CTA content goes here */}
-            </section>
-
-            {/* Footer */}
-            <footer className="container mx-auto px-6 py-8 border-t border-white/10">
-                {/* Footer content goes here */}
-            </footer>
-        </div>
+    // Initialize scroll animations
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
     );
-}
 
-// Initialize the app
-const root = document.getElementById('root');
-ReactDOM.render(<App />, root);
+    // Observe all elements with 'reveal' class
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Feature card hover effects
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const icon = card.querySelector('.feature-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.1)';
+                icon.style.color = '#8b5cf6'; // Purple accent color
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.feature-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1)';
+                icon.style.color = '';
+            }
+        });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add animation classes to elements on load
+    const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-down');
+    animateElements.forEach(element => {
+        element.style.opacity = '0';
+        setTimeout(() => {
+            element.style.opacity = '1';
+        }, 100);
+    });
+
+    // Handle glass card hover effects
+    document.querySelectorAll('.glass').forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            element.style.background = `
+                radial-gradient(
+                    circle at ${x}px ${y}px,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(255, 255, 255, 0.03) 40%
+                )
+            `;
+        });
+
+        element.addEventListener('mouseleave', () => {
+            element.style.background = 'rgba(255, 255, 255, 0.03)';
+        });
+    });
+
+    // Button hover effects
+    document.querySelectorAll('.btn-primary').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'translateY(-2px)';
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Initialize floating orb animations
+    const orbs = document.querySelectorAll('.glow-orb');
+    orbs.forEach((orb, index) => {
+        orb.style.animation = `float ${10 + index * 2}s infinite`;
+        orb.style.animationDelay = `${index * -2}s`;
+    });
+});
+
+// Handle scroll progress
+window.addEventListener('scroll', () => {
+    const scrollProgress = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    const header = document.querySelector('nav');
+    
+    if (scrollProgress > 0.1) {
+        header.classList.add('glass');
+        header.style.backdropFilter = 'blur(10px)';
+    } else {
+        header.classList.remove('glass');
+        header.style.backdropFilter = 'none';
+    }
+});
+
+// Handle resize events for responsive behavior
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        lucide.createIcons(); // Refresh icons on resize
+        
+        // Update any responsive elements
+        const cards = document.querySelectorAll('.feature-card');
+        cards.forEach(card => {
+            if (window.innerWidth < 768) {
+                card.classList.remove('reveal');
+            } else {
+                card.classList.add('reveal');
+            }
+        });
+    }, 250);
+});
